@@ -28,7 +28,7 @@ else
   docker run -itd --name $CONTAINER_NAME --rm n1neman/fmk >/dev/null
 fi
 if [ $? -ne 0 ]; then
-  echo -e "${RED}[-]${END} Failed to start Docker container."
+  echo -e "${RED}[-]${END} Failed to start Docker container.TRY TO USE sudo to solved it, or check your network."
   rm to_ana_bin 2> /dev/null
   exit 1
 fi
