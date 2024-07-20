@@ -16,7 +16,7 @@ fi
 # Check if firmware file path is provided
 if [ -z "$1" ]; then
   echo -e "${RED}[-]${END} Please provide the firmware file path.\n${YELLOW}[*]${END} Usage:  $0 [-d] <firmware_file_path>"
-  exit 1
+  rm to_ana_bin && exit 1
 fi
 
 FIRMWARE_FILE=$1
@@ -35,7 +35,7 @@ fi
 
 if [ $? -ne 0 ]; then
   echo -e "${RED}[-]${END} Failed to start Docker container."
-  exit 1
+  rm to_ana_bin && exit 1
 fi
 
 # Copy firmware file to temporary file
@@ -51,7 +51,7 @@ fi
 if [ $? -ne 0 ]; then
   echo -e "${RED}[-]${END} Failed to copy firmware file to Docker container."
   docker stop $CONTAINER_NAME
-  exit 1
+  rm to_ana_bin && exit 1
 fi
 
 # Extract firmware file in Docker container
@@ -63,8 +63,8 @@ fi
 
 if [ $? -ne 0 ]; then
   echo -e "${RED}[-]${END} Failed to extract firmware file."
-  docker stop $CONTAINER_NAME
-  exit 1
+  docker stop $CONTAINER_NAME >/dev/null
+  rm to_ana_bin && exit 1
 fi
 
 # Copy extracted folder back to host
@@ -76,8 +76,8 @@ fi
 
 if [ $? -ne 0 ]; then
   echo -e "${RED}[-]${END} Failed to copy extracted folder."
-  docker stop $CONTAINER_NAME
-  exit 1
+  docker stop $CONTAINER_NAME >/dev/null
+  rm to_ana_bin && exit 1
 fi
 
 # Stop and remove Docker container
