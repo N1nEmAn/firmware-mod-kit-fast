@@ -58,6 +58,14 @@ fmk example_DIR_815
 
 Here, `example_DIR_815` should be replaced with the actual firmware path.
 
+**Debug Mode**
+
+To enable debugging output, use the `-d` flag. This will provide detailed logs and help troubleshoot any issues:
+
+```bash
+fmk -d example_DIR_815
+```
+
 **Note**: If the `fmk` command fails, try running it with `sudo`:
 
 ```bash
@@ -76,5 +84,7 @@ cd firmware-mod-kit-fast
 
 # Extract firmware
 fmk example_DIR_815
-```
 
+# Extract firmware with debugging output
+fmk -d example_DIR_815
+```
