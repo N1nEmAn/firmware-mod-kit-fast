@@ -1,4 +1,13 @@
 # Firmware Mod Kit FAST Usage Guide
+## Highlights
+
+- **Quick and Easy Firmware Extraction**: This tool allows you to use the Firmware Mod Kit (FMK) for firmware extraction with ease.
+- **No Configuration Needed**: No need to worry about GCC, binwalk, or Python version incompatibilities.
+- **Ready to Use Out of the Box**: Start extracting firmware immediately without any setup hassles.
+- **Efficient Extraction**: Quickly extract kernel images, file systems, and more from your firmware.
+- **Star Us on GitHub**: If you find this tool useful, please give us a star!
+
+## Why I Created It
 
 The motivation for creating this tool stemmed from encountering issues with the original Firmware Mod Kit (FMK) when it failed to work for me. I found a reliable Docker image from the repository bnzm5270/firmware-mod-kit, which I initially used as a reference. To ensure stability and better control, I adapted and copied the Docker setup to my own Docker account. I appreciate the original work done by bnzm5270, which served as the foundation for this project.
 
