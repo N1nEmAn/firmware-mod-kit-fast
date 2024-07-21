@@ -1,15 +1,22 @@
 # Firmware Mod Kit FAST Usage Guide
+
 ## Highlights
 
-- **Quick and Easy Firmware Extraction**: This tool allows you to use the Firmware Mod Kit (FMK) for firmware extraction with ease.
-- **No Configuration Needed**: No need to worry about GCC, binwalk, or Python version incompatibilities.
-- **Ready to Use Out of the Box**: Start extracting firmware immediately without any setup hassles.
-- **Efficient Extraction**: Quickly extract kernel images, file systems, and more from your firmware.
-- **Star Us on GitHub**: If you find this tool useful, please give us a star!
+- **🚀 Quick and Easy Firmware Extraction**: This tool allows you to use the Firmware Mod Kit (FMK) for firmware extraction with ease.
+- **🔧 No Configuration Needed**: No need to worry about GCC, binwalk, or Python version incompatibilities.
+- **📦 Ready to Use Out of the Box**: Start extracting firmware immediately without any setup hassles.
+- **⚡ Efficient Extraction**: Quickly extract kernel images, file systems, and more from your firmware.
+- **⭐ Star Us on GitHub**: If you find this tool useful, please give us a star!
 
 ## Why I Created It
 
-The motivation for creating this tool stemmed from encountering issues with the original Firmware Mod Kit (FMK) when it failed to work for me. I found a reliable Docker image from the repository bnzm5270/firmware-mod-kit, which I initially used as a reference. To ensure stability and better control, I adapted and copied the Docker setup to my own Docker account. I appreciate the original work done by bnzm5270, which served as the foundation for this project.
+The motivation for creating this tool stemmed from my personal experiences with the original Firmware Mod Kit (FMK). Despite its potential, the original FMK often failed to work for me due to various compatibility issues.
+
+In my quest for a solution, I discovered a reliable Docker image from the repository bnzm5270/firmware-mod-kit. This image worked well initially and served as a valuable reference point.
+
+To ensure greater stability and control, I decided to adapt and copy the Docker setup to my own Docker account. This adaptation was crucial in creating a more reliable and user-friendly tool.
+
+I deeply appreciate the original work done by bnzm5270, which laid the foundation for this project. Without their contributions, this tool would not have been possible. 🙏
 
 ## Dependencies
 
