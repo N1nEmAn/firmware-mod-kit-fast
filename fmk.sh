@@ -13,11 +13,11 @@ if [ "$1" == "-d" ]; then
   shift
 fi
 
-# Check if build mode is enabled with the -p flag
+# Check if build mode is enabled with the -b flag
 BUILD_MODE=false
 PARAM_FOLDER=""
 
-if [ "$1" == "-p" ]; then
+if [ "$1" == "-b" ]; then
   BUILD_MODE=true
   shift
   PARAM_FOLDER=$1
@@ -26,8 +26,8 @@ fi
 
 # Check if the firmware file path or folder is provided
 if [ -z "$1" ] && [ "$BUILD_MODE" = false ]; then
-  echo -e "${RED}[-]${END} Please provide the firmware file path or use the -p flag with a folder path."
-  echo -e "${YELLOW}[*]${END} Usage:  $0 [-d] <firmware_file_path> | -p <folder_path>"
+  echo -e "${RED}[-]${END} Please provide the firmware file path or use the -b flag with a folder path."
+  echo -e "${YELLOW}[*]${END} Usage:  $0 [-d] <firmware_file_path> | -b <folder_path>"
   exit 0
 fi
 
@@ -53,7 +53,7 @@ if $BUILD_MODE; then
   if [ -d "$PARAM_FOLDER" ]; then
     echo -e "${YELLOW}[*]${END} Copying folder '$PARAM_FOLDER' to Docker container..."
     docker cp "$PARAM_FOLDER" "$CONTAINER_NAME:/firmware-mod-kit/fmk"
-    
+
     echo -e "${YELLOW}[*]${END} Building new firmware from '$PARAM_FOLDER'..."
     docker exec -it $CONTAINER_NAME bash -c "cd /firmware-mod-kit && ./build-firmware.sh"
 
@@ -110,4 +110,3 @@ fi
 # Clean up
 docker stop $CONTAINER_NAME
 rm "$TO_ANA_BIN"
-
