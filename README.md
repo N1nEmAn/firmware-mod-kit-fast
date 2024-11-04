@@ -1,5 +1,7 @@
 # Firmware Mod Kit FAST Usage Guide
 
+Update: Now, you can use `fmk -p folder` to build a new firmware! --2024.11.4
+
 ## Highlights
 
 - **🚀 Quick and Easy Firmware Extraction**: This tool allows you to use the Firmware Mod Kit (FMK) for firmware extraction with ease.
