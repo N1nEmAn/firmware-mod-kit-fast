@@ -64,18 +64,19 @@ if $BUILD_MODE; then
     else
       echo -e "${RED}[-]${END} Firmware build failed."
     fi
-  else
-    echo -e "${RED}[-]${END} The folder '$PARAM_FOLDER' does not exist."
-  fi
 
-  docker stop $CONTAINER_NAME
-  exit 0
+    docker stop $CONTAINER_NAME
+    exit 0
+  else
+    echo -e "${RED}[-]${END} Provided folder '$PARAM_FOLDER' does not exist."
+    docker stop $CONTAINER_NAME
+    exit 1
+  fi
 fi
 
-# Normal firmware extraction flow
+# Normal extraction mode
 FIRMWARE_FILE=$1
-
-echo -e "${YELLOW}[*]${END} Start extracting..."
+echo -e "${YELLOW}[*]${END} Extracting firmware from '$FIRMWARE_FILE'..."
 
 # Copy firmware file to temporary file
 cp "$FIRMWARE_FILE" "$TO_ANA_BIN"
@@ -102,11 +103,13 @@ else
 fi
 
 if [ $? -eq 0 ]; then
-  echo -e "${GREEN}[+]${END} Extraction completed successfully."
+  echo -e "${GREEN}[+]${END} Firmware extracted successfully."
+  docker cp "$CONTAINER_NAME:/firmware-mod-kit/fmk" "$LOCAL_FOLDER" >>/dev/null
+  echo -e "${GREEN}[+]${END} 'fmk' folder copied to the host machine."
 else
-  echo -e "${RED}[-]${END} Extraction failed."
+  echo -e "${RED}[-]${END} Firmware extraction failed."
 fi
 
 # Clean up
-docker stop $CONTAINER_NAME
+docker stop $CONTAINER_NAME >>/dev/null
 rm "$TO_ANA_BIN"
