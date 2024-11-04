@@ -1,6 +1,6 @@
 # Firmware Mod Kit FAST Usage Guide
 
-Update: Now, you can use `fmk -p folder` to build a new firmware! --2024.11.4
+Update: Now, you can use `fmk -p folder` to build a new firmware!         --2024.11.4
 
 ## Highlights
 
@@ -105,4 +105,8 @@ fmk example_DIR_815
 
 # Extract firmware with debugging output
 fmk -d example_DIR_815
+
+# Build firmware
+fmk -p your_folder
+
 ```
